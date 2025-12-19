@@ -25,7 +25,16 @@ const Home: React.FC = () => {
   const scrollToRankings = () => {
     const element = document.getElementById('featured');
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offset = 80; // Compensação para o header fixo
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
@@ -58,9 +67,13 @@ const Home: React.FC = () => {
             <motion.div variants={itemVariants}>
               <motion.button 
                 onClick={scrollToRankings}
-                whileHover={{ scale: 1.02, backgroundColor: "#ffffff" }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-block bg-[#C5A059] text-black px-12 py-6 text-xs font-black uppercase tracking-[0.2em] transition-all shadow-[0_0_30px_rgba(197,160,89,0.2)] hover:shadow-[0_0_50px_rgba(197,160,89,0.4)]"
+                whileHover={{ 
+                  scale: 1.05, 
+                  backgroundColor: "#ffffff",
+                  boxShadow: "0px 0px 40px rgba(197, 160, 89, 0.5)"
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block bg-[#C5A059] text-black px-12 py-6 text-[10px] font-black uppercase tracking-[0.3em] transition-all duration-300 shadow-[0_0_20px_rgba(197,160,89,0.2)]"
               >
                 View Current Rankings
               </motion.button>
