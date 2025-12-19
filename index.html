@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>American Ads Awards — The Index</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Bricolage+Grotesque:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+          --gold: #C5A059;
+          --gold-bright: #D4AF37;
+          --black: #000000;
+          --zinc: #0A0A0A;
+        }
+        body { 
+          font-family: 'Plus Jakarta Sans', sans-serif; 
+          background-color: #000000;
+          color: #ffffff;
+          -webkit-font-smoothing: antialiased;
+          overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Bricolage Grotesque', sans-serif; letter-spacing: -0.04em; }
+        
+        .gold-text { color: var(--gold); }
+        .gold-border { border-color: var(--gold); }
+        .gold-bg { background-color: var(--gold); }
+        
+        .grain {
+          position: fixed;
+          top: 0; left: 0; width: 100%; height: 100%;
+          background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+          opacity: 0.05;
+          pointer-events: none;
+          z-index: 9999;
+        }
+        
+        ::selection {
+          background: var(--gold);
+          color: black;
+        }
+
+        /* Suavização de scroll */
+        html {
+          scroll-behavior: smooth;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.11.0",
+    "framer-motion": "https://esm.sh/framer-motion@^11.11.11"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body class="text-white">
+    <div class="grain"></div>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
