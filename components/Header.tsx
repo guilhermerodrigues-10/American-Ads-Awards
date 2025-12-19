@@ -11,20 +11,20 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between h-20 items-center">
           <Link to="/" className="group">
-            <span className="text-xl font-extrabold tracking-tighter text-white flex items-center">
-              AAA <span className="ml-2 px-2 py-0.5 border border-[#C5A059] text-[#C5A059] text-[9px] tracking-[0.3em] uppercase">The Index</span>
+            <span className="text-xl font-extrabold tracking-tighter text-white flex items-center group-hover:text-[#C5A059] transition-colors">
+              AAA <span className="ml-2 px-2 py-0.5 border border-[#C5A059] text-[#C5A059] text-[9px] tracking-[0.3em] uppercase group-hover:bg-[#C5A059] group-hover:text-black transition-all">The Index</span>
             </span>
           </Link>
 
           <nav className="hidden md:flex space-x-12 items-center">
             <Link to="/" className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors hover:text-[#C5A059] ${location.pathname === '/' ? 'text-[#C5A059]' : 'text-zinc-500'}`}>Rankings</Link>
             <Link to="/methodology" className={`text-[10px] font-black uppercase tracking-[0.2em] transition-colors hover:text-[#C5A059] ${location.pathname === '/methodology' ? 'text-[#C5A059]' : 'text-zinc-500'}`}>Methodology</Link>
-            <Link to="/methodology" className="bg-[#C5A059] text-black px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-[#D4AF37] transition-all transform hover:-translate-y-0.5">
+            <Link to="/methodology" className="bg-[#C5A059] text-black px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-white transition-all transform hover:-translate-y-0.5 shadow-lg shadow-[#C5A059]/10">
               Submit Agency
             </Link>
           </nav>
 
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-[#C5A059]">
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-[#C5A059] p-2">
             <i className={`fas ${isOpen ? 'fa-times' : 'fa-bars'} text-xl`}></i>
           </button>
         </div>

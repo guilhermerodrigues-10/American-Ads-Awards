@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import Header from './components/Header';
@@ -8,6 +8,15 @@ import Home from './pages/Home';
 import NicheDetail from './pages/NicheDetail';
 import Methodology from './pages/Methodology';
 import Legal from './pages/Legal';
+
+// Componente para garantir que a página suba ao topo em cada mudança de rota
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const PageWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
@@ -39,6 +48,7 @@ const AnimatedRoutes = () => {
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop />
       <div className="flex flex-col min-h-screen selection:bg-[#C5A059] selection:text-black">
         <Header />
         <main className="flex-grow">

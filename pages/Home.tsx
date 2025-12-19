@@ -22,9 +22,16 @@ const Home: React.FC = () => {
     }
   };
 
+  const scrollToRankings = () => {
+    const element = document.getElementById('featured');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black">
-      {/* 3) HOME — Hero Section com animação staggered */}
+      {/* Hero Section */}
       <section className="pt-40 pb-32 border-b border-zinc-900 overflow-hidden relative">
         <motion.div 
           className="max-w-7xl mx-auto px-6 relative z-10"
@@ -46,12 +53,17 @@ const Home: React.FC = () => {
               className="text-xl md:text-3xl text-zinc-500 max-w-2xl font-medium leading-tight tracking-tight mb-12"
             >
               Independent analysis and ranking of the top marketing companies in the United States.
-            </p>
+            </motion.p>
             
             <motion.div variants={itemVariants}>
-              <a href="#featured" className="inline-block bg-[#C5A059] text-black px-12 py-6 text-xs font-black uppercase tracking-[0.2em] hover:bg-white transition-all transform hover:-translate-y-1 active:scale-95">
+              <motion.button 
+                onClick={scrollToRankings}
+                whileHover={{ scale: 1.02, backgroundColor: "#ffffff" }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-block bg-[#C5A059] text-black px-12 py-6 text-xs font-black uppercase tracking-[0.2em] transition-all shadow-[0_0_30px_rgba(197,160,89,0.2)] hover:shadow-[0_0_50px_rgba(197,160,89,0.4)]"
+              >
                 View Current Rankings
-              </a>
+              </motion.button>
             </motion.div>
           </div>
         </motion.div>
@@ -66,7 +78,7 @@ const Home: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* 3) Seção: “Top Agencies by Niche” com Scroll Reveal */}
+      {/* Seção Destaque Principal */}
       <section id="featured" className="py-32 border-b border-zinc-900 bg-zinc-950">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
@@ -126,7 +138,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* 4) Seção: “Our Niches” com micro-interações */}
+      {/* Our Niches Section */}
       <section className="py-32 bg-black">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
@@ -155,7 +167,7 @@ const Home: React.FC = () => {
                   className="group p-10 border border-zinc-900 hover:border-[#C5A059] transition-all duration-500 flex flex-col justify-between h-full hover:shadow-[0_0_40px_rgba(197,160,89,0.05)]"
                 >
                   <div>
-                    <div className="w-12 h-12 border border-zinc-800 flex items-center justify-center mb-10 group-hover:border-[#C5A059] group-hover:bg-[#C5A059] group-hover:text-black transition-all duration-500">
+                    <div className="w-12 h-12 border border-zinc-800 flex items-center justify-center mb-10 group-hover:border-[#C5A059] group-hover:bg-[#C5A059] group-hover:text-black transition-all duration-500 text-[#C5A059]">
                        <i className={`fas ${niche.id === 'performance' ? 'fa-bolt' : niche.id === 'sales-integration' ? 'fa-link' : 'fa-pen-nib'}`}></i>
                     </div>
                     <h3 className="text-2xl font-extrabold text-white mb-4 tracking-tighter group-hover:text-[#C5A059] transition-colors">{niche.title}</h3>
